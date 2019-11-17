@@ -15,6 +15,8 @@ app.get('/search',function(req,res){
     producer = new Producer(client)
     var message = req.query.searchString
     var section = req.query.category
+    console.log(message)
+    console.log(section)
     payloads = [
         { topic: 'test', messages: "{message:"+message+",section:"+section+"}" }
     ];
