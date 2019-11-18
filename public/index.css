@@ -9,7 +9,7 @@ body{
 }
 #Category
 {
-	background-color: rgba(6, 31, 58, 0.5);
+	background-color:rgba(146, 146, 146, 0.5);;
 }
 .btn-outline-success{
     border-color: rgba(25, 48, 72, 0.5);
@@ -17,7 +17,19 @@ body{
 }
 #searchbox{
 	width:69%;
+	margin-top: 1%;
 }
-
-
-
+#searchform{
+	padding-top:3%;
+}
+h1{
+	/* padding-left: 40%; */
+    color: #2f484c;
+}
+#search:hover {
+	background-color: rgba(25, 48, 72, 0.5); 
+	color: white;
+  }
+select{
+	height: 2.8em;
+}

@@ -1,21 +1,103 @@
 <html>
   <head>
 
-	<title>Document Summarization</title>
+  <title>Document Summarization</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" href="index.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="index.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="node_modules/newsapi/dist/index.js" type="module"></script> -->
+  <script>
+    function retrieveTopHeadlines(){
+      alert("functioj");
+    //const NewsAPI = require('newsapi');
+    const newsapi = new NewsAPI('80f13eeda9c8481590f4696199a27860');
+    // To query /v2/top-headlines
+    // All options passed to topHeadlines are optional, but you need to include at least one of them
+    newsapi.v2.topHeadlines({
+    sources: 'bbc-news,the-verge',
+    q: 'bitcoin',
+    category: 'business',
+    language: 'en',
+    country: 'us'
+    }).then(response => {
+    //console.log("hello");
+    console.log(response);
+    });
+  }
+
+    $( document ).ready(function() {
+   alert( "document loaded" );
+   console.log("hello");
+   retrieveTopHeadlines();
+    });
+//window.onload =retrieveTopHeadlines();
+ </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Favicon -->
+   <link rel="icon" href="img/core-img/news2.png">
+
+   <!-- Stylesheet -->
+   <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  	<header>
-  	</header>
+    <header class="header-area">
+
+      <!-- Navbar Area -->
+      <div class="mag-main-menu" id="sticker">
+          <div class="classy-nav-container breakpoint-off">
+              <!-- Menu -->
+              <nav class="classy-navbar justify-content-between" id="magNav">
+
+                  <!-- Nav brand -->
+                  <!-- <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a> -->
+                  <h1>Top News</h1>
+                  <!-- Navbar Toggler -->
+                  <div class="classy-navbar-toggler">
+                      <span class="navbarToggler"><span></span><span></span><span></span></span>
+                  </div>
+
+                  <!-- Nav Content -->
+                  <div class="nav-content d-flex align-items-center">
+                      <div class="classy-menu">
+
+                          <!-- Close Button -->
+                          <div class="classycloseIcon">
+                              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                          </div>
+
+                          <!-- Nav Start -->
+                          <div class="classynav">
+                              <ul>
+                                  
+                                  <!-- <li><a href="#">Pages</a>
+                                      <ul class="dropdown"> -->
+                                          <li><a href="index.html">Home</a></li>
+                                          
+                                          <li><a href="about.html">About Us</a></li>
+                                          <li><a href="contact.html">Contact</a></li>
+                            
+                                    <!-- </li> -->
+                                
+                              </ul>
+                          </div>
+                          <!-- Nav End -->
+                      </div>
+
+                  </div>
+              </nav>
+          </div>
+      </div>
+  </header>
+    <!-- <h1>Top News</h1> -->
   	<!-- Search form -->
 
-    <form class="form-inline mr-auto" id="search form">
+    <form class="form-inline mr-auto" id="searchform">
       <input class="form-control mr-sm-2" type="text" placeholder="Search News" aria-label="Search" id="searchbox">
-      <button class="btn btn-outline-success btn-rounded btn-sm my-0" onclick="GetSelectedText()" id="search" type="submit">Search</button>
+      <button class="btn btn-outline-success btn-rounded my-0" onclick="GetSelectedText()" id="search" type="submit">Search</button>
   
 
     <div class="dropdown">
@@ -36,6 +118,9 @@
 
     </div>
    </form>
+   <div id="news">
+
+   </div>
   	
 
   </body>
